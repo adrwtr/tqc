@@ -12,5 +12,15 @@
  */
 
 return array(
-    // ...
+    'doctrine' => array(
+        'connection' => array(
+            // Conexão padrão MySQL
+           'orm_default' => array(
+                'driverClass' => 'Doctrine\DBAL\Driver\PDOSqlite\Driver',
+                'params' => array(
+                    'path'     => __DIR__ . '/db.sqlite'
+                )
+            ),
+        )
+    ),
 );
