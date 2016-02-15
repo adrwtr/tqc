@@ -1,7 +1,7 @@
-# config/yaml/User.dcm.yml
-Application\Entity\User:
+# config/yaml/Processo.dcm.yml
+Application\Entity\Processo:
   type: entity
-  table: user
+  table: processo
   id:
     id:
       type: integer
@@ -10,7 +10,5 @@ Application\Entity\User:
   fields:
     ds_nome:
       type: string
-    ds_login:
-        type: string
-    ds_senha:
+    ds_descricao:
         type: string

@@ -4,105 +4,90 @@ namespace Application\Entity;
 class User {
 
     /**
-     * @var integer
+     * @var string
      */
-    private $id;
+    private $ds_nome;
 
     /**
      * @var string
      */
-    private $nome;
+    private $ds_login;
 
     /**
      * @var string
      */
-    private $login;
-
-    /**
-     * @var string
-     */
-    private $senha;
+    private $ds_senha;
 
 
     /**
-     * Get id
+     * Set dsNome
      *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set nome
-     *
-     * @param string $nome
+     * @param string $dsNome
      *
      * @return User
      */
-    public function setNome($nome)
+    public function setDsNome($dsNome)
     {
-        $this->nome = $nome;
+        $this->ds_nome = $dsNome;
 
         return $this;
     }
 
     /**
-     * Get nome
+     * Get dsNome
      *
      * @return string
      */
-    public function getNome()
+    public function getDsNome()
     {
-        return $this->nome;
+        return $this->ds_nome;
     }
 
     /**
-     * Set login
+     * Set dsLogin
      *
-     * @param string $login
+     * @param string $dsLogin
      *
      * @return User
      */
-    public function setLogin($login)
+    public function setDsLogin($dsLogin)
     {
-        $this->login = $login;
+        $this->ds_login = $dsLogin;
 
         return $this;
     }
 
     /**
-     * Get login
+     * Get dsLogin
      *
      * @return string
      */
-    public function getLogin()
+    public function getDsLogin()
     {
-        return $this->login;
+        return $this->ds_login;
     }
 
     /**
-     * Set senha
+     * Set dsSenha
      *
-     * @param string $senha
+     * @param string $dsSenha
      *
      * @return User
      */
-    public function setSenha($senha)
+    public function setDsSenha($dsSenha)
     {
-        $this->senha = $senha;
+        $this->ds_senha = $dsSenha;
 
         return $this;
     }
 
     /**
-     * Get senha
+     * Get dsSenha
      *
      * @return string
      */
-    public function getSenha()
+    public function getDsSenha()
     {
-        return $this->senha;
+        return $this->ds_senha;
     }
 }

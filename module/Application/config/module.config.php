@@ -59,6 +59,28 @@ return array(
                             ),
                         ),
                     ),
+
+                    'visualizar' => array(
+                        'type'    => 'Segment',
+                        'options' => array(
+                            'route'    => '/visualizar',
+                            'defaults' => array(
+                                'controller' => 'Application\Controller\Processo',
+                                'action'     => 'visualizar',
+                            ),
+                        ),
+                    ),
+
+                    'excluir' => array(
+                        'type'    => 'Segment',
+                        'options' => array(
+                            'route'    => '/excluir',
+                            'defaults' => array(
+                                'controller' => 'Application\Controller\Processo',
+                                'action'     => 'excluir',
+                            ),
+                        ),
+                    ),
                 ),
             ),
 
@@ -131,8 +153,13 @@ return array(
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
         ),
+
         'template_path_stack' => array(
             __DIR__ . '/../view',
+        ),
+
+        'strategies' => array(
+            'ViewJsonStrategy',
         ),
     ),
 

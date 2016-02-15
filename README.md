@@ -10,3 +10,5 @@ SQL Lite
 Zend2
 Angular
 PHP UNIT
+
+php public/index.php orm:generate-entities ./module/Application/src
