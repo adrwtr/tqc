@@ -4,6 +4,11 @@ namespace Application\Entity;
 class User {
 
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @var string
      */
     private $ds_nome;
@@ -18,6 +23,15 @@ class User {
      */
     private $ds_senha;
 
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * Set dsNome

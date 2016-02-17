@@ -80,5 +80,19 @@ class Processo
     {
         return $this->ds_descricao;
     }
+
+    /**
+     * Retorna o array
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        return array(
+            'id' => $this->getId(),
+            'ds_nome' => $this->getDsNome(),
+            'ds_descricao' => $this->getDsDescricao()
+        );
+    }
 }
 

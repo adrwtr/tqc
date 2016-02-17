@@ -16,10 +16,15 @@ class ProcessoController extends AbstractActionController
 
     public function formularioAction()
     {
-        // se for incluir
-        // apenas cria um novo
+        $cd_processo = $this->params()
+            ->fromQuery('cd_processo');
+
         try {
-            $objProcesso = $this->getProcesso();
+            $objProcesso = $this->getServiceLocator()
+                ->get('Application\Service\Processo')
+                ->getProcesso(
+                    $cd_processo
+                );
         } catch (\Exception $e) {
             $objProcesso = new Processo();
         }
@@ -33,9 +38,16 @@ class ProcessoController extends AbstractActionController
 
     public function visualizarAction()
     {
+        $cd_processo = $this->params()
+            ->fromQuery('cd_processo');
+
         return new ViewModel(
             array(
-                'objProcesso' => $this->getProcesso()
+                'objProcesso' => $this->getServiceLocator()
+                    ->get('Application\Service\Processo')
+                    ->getProcesso(
+                        $cd_processo
+                    )
             )
         );
     }
@@ -66,28 +78,9 @@ class ProcessoController extends AbstractActionController
             true
         );
 
-        $objProcesso = new Processo();
-
-
-        if ($arrPost['id'] != null && $arrPost['id'] != '') {
-            $objProcesso = $this->getProcesso(
-                $arrPost['id']
-            );
-        }
-
-        $objProcesso->setDsNome(
-            $arrPost['ds_nome']
-        )->setDsDescricao(
-            $arrPost['ds_descricao']
-        );
-
         $this->getServiceLocator()
-            ->get('Doctrine\ORM\EntityManager')
-            ->persist($objProcesso);
-
-        $this->getServiceLocator()
-            ->get('Doctrine\ORM\EntityManager')
-            ->flush();
+            ->get('Application\Service\Processo')
+            ->persistir($arrPost);
 
         return new JsonModel(
             array(
@@ -98,49 +91,24 @@ class ProcessoController extends AbstractActionController
 
     public function excluirAction()
     {
-        $objProcesso = $this->getProcesso();
+        $cd_processo = $this->params()
+            ->fromQuery('cd_processo');
+
+        $objProcesso = $this->getServiceLocator()
+            ->get('Application\Service\Processo')
+            ->getProcesso(
+                $cd_processo
+            );
 
         $this->getServiceLocator()
-            ->get('Doctrine\ORM\EntityManager')
-            ->remove($objProcesso);
-
-        $this->getServiceLocator()
-            ->get('Doctrine\ORM\EntityManager')
-            ->flush();
+            ->get('Application\Service\Processo')
+            ->remover(
+                $objProcesso
+            );
 
         $this->redirect()
             ->toRoute('processos');
     }
 
-    /**
-     * Retorna o processo
-     *
-     * @return Application\Entity\Processo
-     */
-    private function getProcesso($id = null)
-    {
-        $cd_processo = $this->params()
-            ->fromQuery('cd_processo');
 
-        if ($id != null) {
-            $cd_processo = $id;
-        }
-
-        if ($cd_processo == null) {
-            $cd_processo = 0;
-        }
-
-        $objProcesso = $this->getServiceLocator()
-            ->get('Doctrine\ORM\EntityManager')
-            ->find(
-                'Application\Entity\Processo',
-                $cd_processo
-            );
-
-        if ($objProcesso == null) {
-            throw new \Exception("Error: Processo não encontrado!", 1);
-        }
-
-        return $objProcesso;
-    }
 }

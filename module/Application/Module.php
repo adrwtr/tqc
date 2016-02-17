@@ -36,4 +36,19 @@ class Module
             ),
         );
     }
+
+    /**
+     * Configurador de serviços para o módulo
+     *
+     * @return array
+     */
+    public function getServiceConfig()
+    {
+
+        return array(
+            'factories' => array(
+                'Application\Service\Processo' => 'Application\Service\ProcessoService'
+            ),
+        );
+    }
 }
