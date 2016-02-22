@@ -19,7 +19,7 @@ echo $this->headScript()
         <ul class="list-group">
 
         <li class="list-group-item" ng-repeat="arrDados in arrRegistros" >
-            <a href="#" ng-click="executarProcesso(arrDados.id)">
+            <a href="#" ng-click="executarProcesso(arrDados.cd_processo)">
             {{arrDados.ds_nome}}
             </a>
         </li>

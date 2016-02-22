@@ -6,7 +6,7 @@ class User {
     /**
      * @var integer
      */
-    private $id;
+    private $cd_usuario;
 
     /**
      * @var string
@@ -28,9 +28,9 @@ class User {
      *
      * @return integer
      */
-    public function getId()
+    public function getCdUsuario()
     {
-        return $this->id;
+        return $this->cd_usuario;
     }
 
     /**

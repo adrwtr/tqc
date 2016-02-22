@@ -4,7 +4,7 @@ var objApplication = angular.module(
 );
 
 objApplication.controller(
-    'formularioProcessoController',
+    'formularioAtividadeController',
     function ($scope, $http) {
 
         // $scope.ds_nome = '';
@@ -13,9 +13,10 @@ objApplication.controller(
         $scope.enviarForm = function()
         {
             var arrDados = {
-                cd_processo : $scope.cd_processo,
-                ds_nome : $scope.ds_nome,
-                ds_descricao : $scope.ds_descricao
+                cd_atividade : $scope.cd_atividade,
+                ds_descricao : $scope.ds_descricao,
+                ds_detalhes : $scope.ds_detalhes,
+                nr_ordem : $scope.nr_ordem
             };
 
             // verifica se login já existe
@@ -25,14 +26,14 @@ objApplication.controller(
             )
             .success(
                 function(data){
-                    document.location = '../processos';
+                    document.location = '../processos/visualizar?cd_processo=';
                 }
             );
         }
 
         $scope.voltar = function()
         {
-            document.location = '../processos';
+            document.location = '../processos/visualizar?cd_processo=' + $scope.cd_processo;
         }
     }
 );

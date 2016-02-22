@@ -8,7 +8,7 @@ use Zend\ServiceManager\FactoryInterface;
 
 use Application\Entity\Processo;
 
-class ProcessoService implements FactoryInterface
+class AtividadeService implements FactoryInterface
 {
 
     /**
@@ -44,33 +44,7 @@ class ProcessoService implements FactoryInterface
      */
     public function persistir($arrPost = array())
     {
-        $objProcesso = new Processo();
 
-        if (
-            isset($arrPost['cd_processo']) &&
-            $arrPost['cd_processo'] != null &&
-            $arrPost['cd_processo'] != ''
-        ) {
-            $objProcesso = $this->getProcesso(
-                $arrPost['cd_processo']
-            );
-        }
-
-        $objProcesso->setDsNome(
-            $arrPost['ds_nome']
-        )->setDsDescricao(
-            $arrPost['ds_descricao']
-        );
-
-        $this->getServiceLocator()
-            ->get('Doctrine\ORM\EntityManager')
-            ->persist($objProcesso);
-
-        $this->getServiceLocator()
-            ->get('Doctrine\ORM\EntityManager')
-            ->flush();
-
-        return $objProcesso;
     }
 
 
@@ -79,38 +53,38 @@ class ProcessoService implements FactoryInterface
      *
      * @return Application\Entity\Processo
      */
-    public function getProcesso($cd_processo = null)
+    public function getProcesso($cd_atividade = null)
     {
-        if ($cd_processo == null) {
-            $cd_processo = 0;
+        if ($cd_atividade == null) {
+            $cd_atividade = 0;
         }
 
-        $objProcesso = $this->getServiceLocator()
+        $objAtividade = $this->getServiceLocator()
             ->get('Doctrine\ORM\EntityManager')
             ->find(
                 'Application\Entity\Processo',
-                $cd_processo
+                $cd_atividade
             );
 
-        if ($objProcesso == null) {
+        if ($objAtividade == null) {
             throw new \Exception("Error: Processo não encontrado!", 1);
         }
 
-        return $objProcesso;
+        return $objAtividade;
     }
 
     /**
      * Remove um objeto do banco
      *
-     * @param  Processo $objProcesso [description]
+     * @param  Processo $objAtividade [description]
      *
      * @return this
      */
-    public function remover(Processo $objProcesso)
+    public function remover(Processo $objAtividade)
     {
         $this->getServiceLocator()
             ->get('Doctrine\ORM\EntityManager')
-            ->remove($objProcesso);
+            ->remove($objAtividade);
 
         $this->getServiceLocator()
             ->get('Doctrine\ORM\EntityManager')

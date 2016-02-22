@@ -30,5 +30,10 @@ objApplication.controller(
         {
             document.location = '../processos';
         }
+
+        $scope.novaAtividade = function(cd_processo)
+        {
+            document.location = '../atividades/formulario?cd_processo=' + cd_processo;
+        }
     }
 );

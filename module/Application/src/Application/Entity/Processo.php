@@ -2,6 +2,8 @@
 
 namespace Application\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * Processo
  */
@@ -10,7 +12,7 @@ class Processo
     /**
      * @var integer
      */
-    private $id;
+    private $cd_processo;
 
     /**
      * @var string
@@ -22,15 +24,24 @@ class Processo
      */
     private $ds_descricao;
 
+    /**
+     * @var array
+     */
+    private $arrObjAtividades;
+
+
+    public function __construct() {
+        $this->arrObjAtividades = new ArrayCollection();
+    }
 
     /**
      * Get id
      *
      * @return integer
      */
-    public function getId()
+    public function getCdProcesso()
     {
-        return $this->id;
+        return $this->cd_processo;
     }
 
     /**
@@ -89,7 +100,7 @@ class Processo
     public function toArray()
     {
         return array(
-            'id' => $this->getId(),
+            'cd_processo' => $this->getCdProcesso(),
             'ds_nome' => $this->getDsNome(),
             'ds_descricao' => $this->getDsDescricao()
         );

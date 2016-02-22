@@ -40,8 +40,8 @@ echo $this->headScript()
                         Salvar
                     </button>
 
-                    <input type="hidden" ng-model="id" class="form-control" id="id" placeholder=""
-                        ng-init="id = '<?php echo $objProcesso->getId(); ?>'">
+                    <input type="hidden" ng-model="cd_processo" class="form-control" id="cd_processo" placeholder=""
+                        ng-init="cd_processo = '<?php echo $objProcesso->getCdProcesso(); ?>'">
                 </div>
             </div>
         </form>

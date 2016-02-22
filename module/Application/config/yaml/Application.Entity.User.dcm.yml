@@ -3,7 +3,7 @@ Application\Entity\User:
   type: entity
   table: user
   id:
-    id:
+    cd_usuario:
       type: integer
       generator:
         strategy: AUTO

@@ -3,7 +3,7 @@ Application\Entity\Processo:
   type: entity
   table: processo
   id:
-    id:
+    cd_processo:
       type: integer
       generator:
         strategy: AUTO
@@ -12,3 +12,7 @@ Application\Entity\Processo:
       type: string
     ds_descricao:
         type: string
+oneToMany:
+    arrObjAtividades:
+        targetEntity: Application\Entity\Atividade
+        mappedBy: cd_processo
