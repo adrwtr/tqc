@@ -15,4 +15,5 @@ Application\Entity\Processo:
 oneToMany:
     arrObjAtividades:
         targetEntity: Application\Entity\Atividade
-        mappedBy: cd_processo
+        mappedBy: objProcesso
+        name: cd_processo

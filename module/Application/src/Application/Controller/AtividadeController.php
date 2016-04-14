@@ -82,13 +82,22 @@ class AtividadeController extends AbstractActionController
             true
         );
 
+        $objProcesso =  $this->getServiceLocator()
+            ->get('Application\Service\Processo')
+            ->getProcesso(
+                $arrPost['cd_processo']
+            );
+
+        $arrPost['objProcesso'] = $objProcesso;
+
         $this->getServiceLocator()
             ->get('Application\Service\Atividade')
             ->persistir($arrPost);
 
         return new JsonModel(
             array(
-                'enviado' => true
+                'enviado' => true,
+                'cd_processo' => $arrPost['cd_processo']
             )
         );
     }

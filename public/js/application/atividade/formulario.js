@@ -14,6 +14,7 @@ objApplication.controller(
         {
             var arrDados = {
                 cd_atividade : $scope.cd_atividade,
+                cd_processo : $scope.cd_processo,
                 ds_descricao : $scope.ds_descricao,
                 ds_detalhes : $scope.ds_detalhes,
                 nr_ordem : $scope.nr_ordem
@@ -26,14 +27,16 @@ objApplication.controller(
             )
             .success(
                 function(data){
-                    document.location = '../processos/visualizar?cd_processo=';
+                    //console.log(data);
+                    document.location = '../processos/visualizar?cd_processo=' + data.cd_processo;
                 }
             );
-        }
+        };
 
         $scope.voltar = function()
         {
             document.location = '../processos/visualizar?cd_processo=' + $scope.cd_processo;
-        }
+        };
     }
 );
+

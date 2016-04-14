@@ -1,8 +1,12 @@
 <?php
+
 namespace Application\Entity;
 
-class User {
-
+/**
+ * User
+ */
+class User
+{
     /**
      * @var integer
      */
@@ -23,8 +27,9 @@ class User {
      */
     private $ds_senha;
 
+
     /**
-     * Get id
+     * Get cdUsuario
      *
      * @return integer
      */

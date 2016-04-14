@@ -47,6 +47,17 @@ class ProcessoController extends AbstractActionController
                     ->get('Application\Service\Processo')
                     ->getProcesso(
                         $cd_processo
+                    ),
+                'arrAtividades' => $this->getServiceLocator()
+                    ->get('Doctrine\ORM\EntityManager')
+                    ->getRepository('Application\Entity\Atividade')
+                    ->findBy(
+                        array(
+                            'objProcesso'=> $cd_processo
+                        ),
+                        array(
+                            'nr_ordem' => 'ASC'
+                        )
                     )
             )
         );

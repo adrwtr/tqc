@@ -23,20 +23,32 @@ class Atividade
     private $ds_detalhes;
 
     /**
-     * @var string
+     * @var integer
      */
     private $nr_ordem;
 
     /**
-     * int
-     *
-     * @var int
+     * @var \Application\Entity\Processo
      */
-    private $cd_processo;
+    private $objProcesso;
 
 
     /**
-     * Get id
+     * Set cdAtividade
+     *
+     * @param integer $cdAtividade
+     *
+     * @return Atividade
+     */
+    public function setCdAtividade($cdAtividade)
+    {
+        $this->cd_atividade = $cdAtividade;
+
+        return $this;
+    }
+
+    /**
+     * Get cdAtividade
      *
      * @return integer
      */
@@ -45,13 +57,12 @@ class Atividade
         return $this->cd_atividade;
     }
 
-
     /**
      * Set dsDescricao
      *
      * @param string $dsDescricao
      *
-     * @return Processo
+     * @return Atividade
      */
     public function setDsDescricao($dsDescricao)
     {
@@ -70,23 +81,22 @@ class Atividade
         return $this->ds_descricao;
     }
 
-
     /**
-     * Set dsDescricao
+     * Set dsDetalhes
      *
-     * @param string $dsDescricao
+     * @param string $dsDetalhes
      *
-     * @return Processo
+     * @return Atividade
      */
-    public function setDsDetalhes($ds_detalhes)
+    public function setDsDetalhes($dsDetalhes)
     {
-        $this->ds_detalhes = $ds_detalhes;
+        $this->ds_detalhes = $dsDetalhes;
 
         return $this;
     }
 
     /**
-     * Get dsDescricao
+     * Get dsDetalhes
      *
      * @return string
      */
@@ -96,17 +106,57 @@ class Atividade
     }
 
     /**
-     * Get dsDescricao
+     * Set nrOrdem
      *
-     * @return string
+     * @param integer $nrOrdem
+     *
+     * @return Atividade
+     */
+    public function setNrOrdem($nrOrdem)
+    {
+        $this->nr_ordem = $nrOrdem;
+
+        return $this;
+    }
+
+    /**
+     * Get nrOrdem
+     *
+     * @return integer
      */
     public function getNrOrdem()
     {
         return $this->nr_ordem;
     }
 
+
     /**
-     * Retorna o array
+     * Set objProcesso
+     *
+     * @param \Application\Entity\Processo $objProcesso
+     *
+     * @return Atividade
+     */
+    public function setObjProcesso(
+        \Application\Entity\Processo $objProcesso = null
+    ) {
+        $this->objProcesso = $objProcesso;
+
+        return $this;
+    }
+
+    /**
+     * Get objProcesso
+     *
+     * @return \Application\Entity\Processo
+     */
+    public function getObjProcesso()
+    {
+        return $this->objProcesso;
+    }
+
+    /**
+     * To array
      *
      * @return array
      */
@@ -115,8 +165,9 @@ class Atividade
         return array(
             'cd_atividade' => $this->getCdAtividade(),
             'ds_descricao' => $this->getDsDescricao(),
+            'ds_detalhes' => $this->getDsDetalhes(),
             'nr_ordem' => $this->getNrOrdem()
         );
     }
-}
 
+}

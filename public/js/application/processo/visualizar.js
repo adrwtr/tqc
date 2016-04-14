@@ -35,5 +35,10 @@ objApplication.controller(
         {
             document.location = '../atividades/formulario?cd_processo=' + cd_processo;
         }
+
+
+
+        $('[data-toggle="tooltip"]').tooltip();
+
     }
 );

@@ -6,7 +6,7 @@ use Zend\ServiceManager\Exception\ServiceNotCreatedException;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\ServiceManager\FactoryInterface;
 
-use Application\Entity\Processo;
+use Application\Entity\Atividade;
 
 class AtividadeService implements FactoryInterface
 {
@@ -20,8 +20,8 @@ class AtividadeService implements FactoryInterface
 
 
     /**
-     * Função implementada de FactoryInterface
-     * Cria o serviço
+     * Fun?o implementada de FactoryInterface
+     * Cria o servi?
      *
      * @param ServiceLocatorInterface $objServiceLocator
      *
@@ -40,20 +40,50 @@ class AtividadeService implements FactoryInterface
      *
      * @param  array  $arrPost [description]
      *
-     * @return Processo
+     * @return Atividade
      */
     public function persistir($arrPost = array())
     {
+        $objAtividade = new Atividade();
 
+        if (
+            isset($arrPost['cd_atividade']) &&
+            $arrPost['cd_atividade'] != null &&
+            $arrPost['cd_atividade'] != ''
+        ) {
+            $objAtividade = $this->getAtividade(
+                $arrPost['cd_atividade']
+            );
+        }
+
+        $objAtividade->setDsDescricao(
+            $arrPost['ds_descricao']
+        )->setDsDetalhes(
+            $arrPost['ds_detalhes']
+        )->setNrOrdem(
+            $arrPost['nr_ordem']
+        )->setObjProcesso(
+            $arrPost['objProcesso']
+        );
+
+        $this->getServiceLocator()
+            ->get('Doctrine\ORM\EntityManager')
+            ->persist($objAtividade);
+
+        $this->getServiceLocator()
+            ->get('Doctrine\ORM\EntityManager')
+            ->flush();
+
+        return $objAtividade;
     }
 
 
     /**
-     * Retorna o processo
+     * Retorna o Atividade
      *
-     * @return Application\Entity\Processo
+     * @return Application\Entity\Atividade
      */
-    public function getProcesso($cd_atividade = null)
+    public function getAtividade($cd_atividade = null)
     {
         if ($cd_atividade == null) {
             $cd_atividade = 0;
@@ -62,12 +92,12 @@ class AtividadeService implements FactoryInterface
         $objAtividade = $this->getServiceLocator()
             ->get('Doctrine\ORM\EntityManager')
             ->find(
-                'Application\Entity\Processo',
+                'Application\Entity\Atividade',
                 $cd_atividade
             );
 
         if ($objAtividade == null) {
-            throw new \Exception("Error: Processo não encontrado!", 1);
+            throw new \Exception("Error: Atividade n? encontrado!", 1);
         }
 
         return $objAtividade;
@@ -76,11 +106,11 @@ class AtividadeService implements FactoryInterface
     /**
      * Remove um objeto do banco
      *
-     * @param  Processo $objAtividade [description]
+     * @param  Atividade $objAtividade [description]
      *
      * @return this
      */
-    public function remover(Processo $objAtividade)
+    public function remover(Atividade $objAtividade)
     {
         $this->getServiceLocator()
             ->get('Doctrine\ORM\EntityManager')

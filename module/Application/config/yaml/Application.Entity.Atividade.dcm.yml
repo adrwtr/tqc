@@ -5,8 +5,8 @@ Application\Entity\Atividade:
     id:
         cd_atividade:
             type: integer
-        generator:
-            strategy: AUTO
+            generator:
+               strategy: AUTO
     fields:
         ds_descricao:
             type: string
@@ -15,7 +15,7 @@ Application\Entity\Atividade:
         nr_ordem:
             type: integer
     manyToOne:
-        cd_processo:
+        objProcesso:
             targetEntity: Application\Entity\Processo
             inversedBy: arrObjAtividades
             joinColumn:

@@ -1,10 +1,10 @@
 <?php
 namespace ModuleTest\Application\Service;
 
-// unimestre
-use Application\Service\ProcessoService;
 use ModuleTest\Bootstrap;
 use ModuleTest\FixtureLoader;
+
+use Application\Service\ProcessoService;
 
 class ProcessoServiceTest extends \PHPUnit_Framework_TestCase
 {
@@ -26,7 +26,7 @@ class ProcessoServiceTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(
             array(
                 array(
-                    'id' => 1,
+                    'cd_processo' => 1,
                     'ds_nome' => 'nome 1',
                     'ds_descricao' => 'descricao 1'
                 )
@@ -52,7 +52,7 @@ class ProcessoServiceTest extends \PHPUnit_Framework_TestCase
 
         $objProcesso = $objProcessoService->persistir(
             array(
-                'id' => 1,
+                'cd_processo' => 1,
                 'ds_nome' => 'nome 1',
                 'ds_descricao' => 'descricao 1'
             )
@@ -61,7 +61,7 @@ class ProcessoServiceTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(
             array(
                 array(
-                    'id' => 1,
+                    'cd_processo' => 1,
                     'ds_nome' => 'nome 1',
                     'ds_descricao' => 'descricao 1'
                 )
@@ -85,7 +85,7 @@ class ProcessoServiceTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             array(
-                'id' => 1,
+                'cd_processo' => 1,
                 'ds_nome' => 'Teste Nome 1',
                 'ds_descricao' => 'Teste Descricao 1'
             ),

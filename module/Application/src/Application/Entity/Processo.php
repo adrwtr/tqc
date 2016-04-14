@@ -2,8 +2,6 @@
 
 namespace Application\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-
 /**
  * Processo
  */
@@ -24,18 +22,9 @@ class Processo
      */
     private $ds_descricao;
 
-    /**
-     * @var array
-     */
-    private $arrObjAtividades;
-
-
-    public function __construct() {
-        $this->arrObjAtividades = new ArrayCollection();
-    }
 
     /**
-     * Get id
+     * Get cdProcesso
      *
      * @return integer
      */
@@ -92,8 +81,9 @@ class Processo
         return $this->ds_descricao;
     }
 
+
     /**
-     * Retorna o array
+     * To array
      *
      * @return array
      */
@@ -106,4 +96,3 @@ class Processo
         );
     }
 }
-

@@ -14,7 +14,7 @@ PHP UNIT
 NODE para testes end super com Protractor
 
 =====
-Instalação
+Instala?o
 
 Protractor
 npm install -g protractor
@@ -39,3 +39,16 @@ D:\Programacao\git\tqc\test>..\vendor\bin\phpunit
 
 Uteis
 SET HTTP_PROXY=http://waltrick:aaap@192.168.10.254:3128
+
+
+http://192.168.10.254:3128
+
+
+======
+Doctrine manutenção
+
+
+php public/index.php orm:clear-cache:query
+php public/index.php orm:clear-cache:metadata
+php public/index.php orm:clear-cache:result
+

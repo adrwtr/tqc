@@ -47,7 +47,8 @@ class Module
 
         return array(
             'factories' => array(
-                'Application\Service\Processo' => 'Application\Service\ProcessoService'
+                'Application\Service\Processo' => 'Application\Service\ProcessoService',
+                'Application\Service\Atividade' => 'Application\Service\AtividadeService'
             ),
         );
     }
