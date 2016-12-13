@@ -1,0 +1,87 @@
+<html lang="pt-br" >
+    <head>
+        {{> head}}
+        <script src="../js/fluxo_final.js"></script>
+    </head>
+
+    <body ng-app="main_app">
+        <div id="layoutContainer" ng-controller="Controller"
+            style="height:100px;" ng-cloak>
+            {{> toolbar}}
+
+            <md-content>
+                <div flex>
+                    <md-content layout-padding>
+                        <div>
+                            <p>
+                            Fluxo escolhido - Finalizado
+                            </p>
+                            <p>
+                            Titulo do passo 1
+                            </p>
+
+                            <md-list>
+                                <md-list-item>
+                                    <div class="api-param-table">
+                                        <table class="md-api-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Título do Passo</th>
+                                                    <th>Tempo</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="api-params-item">
+                                                    <td style="white-space: nowrap;">
+                                                        Título do passo
+                                                    </td>
+                                                    <td style="white-space: nowrap;">
+                                                        Tempo
+                                                    </td>
+                                                </tr>
+
+                                                <tr class="api-params-item">
+                                                    <td style="white-space: nowrap;">
+                                                        Título do passo
+                                                    </td>
+                                                    <td style="white-space: nowrap;">
+                                                        Tempo
+                                                    </td>
+                                                </tr>
+
+                                                <tr class="api-params-item">
+                                                    <td style="white-space: nowrap;">
+                                                        TOTAL
+                                                    </td>
+                                                    <td style="white-space: nowrap;">
+                                                        Tempo TOTAL
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </md-list-item>
+                            </md-list>
+
+                            <div>
+                                <form name="userForm">
+                                    <md-input-container class="md-block">
+                                        <label>Comentários</label>
+                                        <textarea name="Text1" cols="40" rows="5"></textarea>
+                                    </md-input-container>
+                                </form>
+                            </div>
+
+                        </div>
+                        <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                            <md-button class="md-raised md-primary">Concluir</md-button>
+                        </section>
+                    </md-content>
+                </div>
+            </md-content>
+        </div>
+    </body>
+</html>
+

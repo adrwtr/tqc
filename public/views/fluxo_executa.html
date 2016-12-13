@@ -1,0 +1,39 @@
+<html lang="pt-br" >
+    <head>
+        {{> head}}
+        <script src="../js/fluxo_executa.js"></script>
+    </head>
+
+    <body ng-app="main_app">
+        <div id="layoutContainer" ng-controller="Controller"
+            style="height:100px;" ng-cloak>
+            {{> toolbar}}
+
+            <md-content>
+                <div flex>
+                    <md-content layout-padding>
+                        <div>
+                            <p>
+                            Fluxo escolhido
+                            </p>
+                            <p>
+                            Titulo do passo 1
+                            </p>
+                            <p>
+                            Texto texto texto
+                            Texto texto texto
+                            Texto texto texto
+                            Texto texto texto
+                            </p>
+                        </div>
+                        <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                            <md-button class="md-raised">Voltar</md-button>
+                            <md-button class="md-raised md-primary">Avançar</md-button>
+                        </section>
+                    </md-content>
+                </div>
+            </md-content>
+        </div>
+    </body>
+</html>
+

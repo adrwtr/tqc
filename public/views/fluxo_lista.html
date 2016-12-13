@@ -1,0 +1,44 @@
+<html lang="pt-br" >
+    <head>
+        {{> head}}
+        <script src="js/fluxo_lista.js"></script>
+    </head>
+
+    <body ng-app="main_app">
+        <div id="layoutContainer" ng-controller="Controller"
+            style="height:100px;" ng-cloak>
+            {{> toolbar}}
+
+            <md-content>
+                <div flex>
+                    <md-content layout-padding>
+                        <div>
+                            <form name="userForm">
+                                <md-input-container class="md-block">
+                                    <label>Buscar</label>
+                                    <input ng-model="user.address">
+                                </md-input-container>
+                            </form>
+                        </div>
+                    </md-content>
+                    <md-content>
+                        <md-list flex>
+                            <md-list-item class="md-1-line" ng-repeat="item in todos" ng-click="null">
+                                <div class="md-list-item-text" layout="column">
+                                    <p>Teste</p>
+                                </div>
+                            </md-list-item>
+                            <md-divider></md-divider>
+                        </md-list>
+                    </md-content>
+                </div>
+            </md-content>
+            <!-- fab button -->
+            <md-button class="md-fab md-fab-bottom-right"
+                aria-label="Add" ng-click="btnAdicionar($event)">
+                <ng-md-icon icon="add"></ng-md-icon>
+            </md-button>
+        </div>
+    </body>
+</html>
+
